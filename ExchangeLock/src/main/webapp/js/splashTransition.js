@@ -1,11 +1,8 @@
-//<script type="text/javascript">
-//
-//window.onload=splashTransition;
 function splashTransition(){
 window.setTimeout("redirect()",2000)}
 
 function redirect(){
-$.get( "index2.html", function( data ) {
+$.get( "home_page.html", function( data ) {
   $("#content_body").html( data );
 });
 
@@ -16,5 +13,7 @@ $("#footer").html(data);
 }
 
 
-//
-//</script>
+
+function showMap(){
+    $('#map-canvas').fadeIn(2000);
+};

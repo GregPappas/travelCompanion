@@ -31,3 +31,7 @@
 #footer{position:absolute; bottom:0px; width:100%;}
 .footer{width:100%;}
 .ui-btn{margin:0px;}
+
+#map-canvas{
+display:none;
+}
