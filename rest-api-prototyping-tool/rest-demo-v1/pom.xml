@@ -131,29 +131,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>com.lloydstsb.plugins</groupId>
-                <artifactId>jmeter-maven-plugin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <configuration>
-                    <jmeterProperties>
-                        <authServerPort>${server.port}</authServerPort>
-                        <authServerHost>localhost</authServerHost>
-                        <authServerProtocol>http</authServerProtocol>
-                    </jmeterProperties>
-                    <testFolder>src/test/jmeter</testFolder>
-                    <jmeterHome>${jmeter.home}</jmeterHome>
-                    <testFailureIgnore>${maven.test.failure.ignore}</testFailureIgnore>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>jmeter</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <profiles>
