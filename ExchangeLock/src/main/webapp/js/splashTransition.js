@@ -8,4 +8,5 @@ $.get( "index2.html", function( data ) {
 return}
 function showMap(){
     $('#map-canvas').fadeIn(2000);
+    initialize();
 };
