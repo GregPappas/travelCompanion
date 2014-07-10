@@ -1,1 +1,0 @@
-JavaScript, JQuery etc. here
