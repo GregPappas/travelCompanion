@@ -10,3 +10,6 @@
 
 .halifax_logo{height:40%; width:100%;}
 #logo_container{width:40%; margin:0px auto;}
+#map-canvas{
+display:none;
+}

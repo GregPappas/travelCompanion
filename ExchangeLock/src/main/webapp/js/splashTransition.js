@@ -1,6 +1,3 @@
-//<script type="text/javascript">
-//
-//window.onload=splashTransition;
 function splashTransition(){
 window.setTimeout("redirect()",2000)}
 
@@ -9,5 +6,6 @@ $.get( "index2.html", function( data ) {
   $("#content_body").html( data );
 });
 return}
-//
-//</script>
+function showMap(){
+    $('#map-canvas').fadeIn(2000);
+};
