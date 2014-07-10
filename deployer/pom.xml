@@ -18,7 +18,7 @@
 		</dependency>
         <dependency>
             <groupId>com.lloydstsb.rest</groupId>
-            <artifactId>rest-bank</artifactId>
+            <artifactId>rest-demo-v1</artifactId>
             <version>0.0.2.demo-SNAPSHOT</version>
             <type>war</type>
         </dependency>
@@ -58,7 +58,7 @@
 							</deployable>
                             <deployable>
                                 <groupId>com.lloydstsb.rest</groupId>
-                                <artifactId>rest-bank</artifactId>
+                                <artifactId>rest-demo-v1</artifactId>
                                 <type>war</type>
                                 <pingURL>http://tjasink.com/rest-bank</pingURL>
                                 <pingTimeout>60000</pingTimeout>
