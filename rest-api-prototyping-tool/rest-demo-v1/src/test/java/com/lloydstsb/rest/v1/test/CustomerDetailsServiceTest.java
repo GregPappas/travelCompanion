@@ -38,7 +38,7 @@ public class CustomerDetailsServiceTest {
 		customers = new CustomersDataIpsum();
 		customers.instantiateCustomers();
 		arrangementData = new ArrangementServiceDataIpsum();
-		arrangementData.instantiateCustomersArrangements();
+		arrangementData.instantiateExchangeLockCustomersArrangements();
 		transactionData = new TransactionsDataIpsum();
 		transactionData.readAndParseCSVFile();
 		beneficiaryData = new BeneficiaryDataIpsum();

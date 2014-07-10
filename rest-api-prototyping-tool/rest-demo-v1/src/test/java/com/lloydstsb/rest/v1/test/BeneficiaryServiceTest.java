@@ -33,7 +33,7 @@ public class BeneficiaryServiceTest {
 	@Before
 	public void initialise()
 	{
-		arrangementData.instantiateCustomersArrangements();
+		arrangementData.instantiateExchangeLockCustomersArrangements();
 		beneficiaries.generateHashMapOfBeneficiaries();		
 		
 	}

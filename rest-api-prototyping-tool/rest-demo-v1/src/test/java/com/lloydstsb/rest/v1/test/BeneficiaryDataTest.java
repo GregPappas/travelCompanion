@@ -23,7 +23,7 @@ public class BeneficiaryDataTest {
 	@Before
 	public void initialise()
 	{
-		arrangementData.instantiateCustomersArrangements();
+		arrangementData.instantiateExchangeLockCustomersArrangements();
 		beneficiaryData.generateHashMapOfBeneficiaries();		
 	}
 	

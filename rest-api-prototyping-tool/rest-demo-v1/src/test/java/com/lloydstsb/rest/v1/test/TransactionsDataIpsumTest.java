@@ -33,7 +33,7 @@ public class TransactionsDataIpsumTest {
 		objectGenerator = new ObjectGenerator();
 		arrangementData =new ArrangementServiceDataIpsum();
 		transactionsData = new TransactionsDataIpsum();
-		arrangementData.instantiateCustomersArrangements();
+		arrangementData.instantiateExchangeLockCustomersArrangements();
 		transactionsData.readAndParseCSVFile();
 	}
 	@After

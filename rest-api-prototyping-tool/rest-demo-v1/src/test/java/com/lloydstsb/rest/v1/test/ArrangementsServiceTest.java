@@ -72,7 +72,7 @@ public class ArrangementsServiceTest {
     public void initialise() throws IOException {
         phoneNumbers.instantiatePhoneNumbers();
         customers.instantiateCustomers();
-        arrangementData.instantiateCustomersArrangements();
+        arrangementData.instantiateExchangeLockCustomersArrangements();
         transactions.readAndParseCSVFile();
         beneficiaries.generateHashMapOfBeneficiaries();
         currentDate = generateStringDate(0);

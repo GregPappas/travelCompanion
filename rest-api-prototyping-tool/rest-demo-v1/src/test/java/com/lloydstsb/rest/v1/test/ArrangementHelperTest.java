@@ -31,7 +31,7 @@ public class ArrangementHelperTest {
 	@Before
 	public void initialize() throws IOException {
 		arrangementData = new ArrangementServiceDataIpsum();
-		arrangementData.instantiateCustomersArrangements();
+		arrangementData.instantiateExchangeLockCustomersArrangements();
 		
 		transactionData = new TransactionsDataIpsum();
 		transactionData.readAndParseCSVFile();
