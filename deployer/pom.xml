@@ -33,7 +33,7 @@
 						<type>runtime</type>
 						<properties>
 							<cargo.hostname>tjasink.com</cargo.hostname>
-							<cargo.remote.username>healthjoiner-tjasink</cargo.remote.username>
+							<cargo.remote.username>tjasink-tomcat</cargo.remote.username>
 							<cargo.remote.password>password</cargo.remote.password>
 							<cargo.servlet.port>80</cargo.servlet.port>
 						</properties>
