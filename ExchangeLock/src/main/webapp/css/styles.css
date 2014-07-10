@@ -28,10 +28,14 @@
 .blue_footer_button{background-color:#0043B4; border:0px; border-bottom:1px solid white; color:white;}
 .grey_footer_button{background-color:white; border:0px; border-bottom:1px solid grey; color:#0043B4;}
 .footer_grey{background-color: #F4F4F6;}
-#footer{position:absolute; bottom:0px; width:100%;}
+#footer{bottom:0px; width:100%; position:relative; bottom:0px;}
 .footer{width:100%;}
 .ui-btn{margin:0px;}
 
+
+.map_canvas_container{height:50%;}
 #map-canvas{
 display:none;
 }
+
+.tagBox{background:white; width:90%; margin:0px auto;}
