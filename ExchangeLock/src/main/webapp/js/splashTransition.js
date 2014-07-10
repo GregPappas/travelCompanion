@@ -10,6 +10,9 @@ $.get("safetynet.html", function(data)
 {
     $("#safetynet").html(data);
 })
+$.get("currency_lock.html", function(data){
+    $("#currency_lock").html(data);
+})
 
 $.get("footer.html", function(data)
 {
