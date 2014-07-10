@@ -16,4 +16,5 @@ $("#footer").html(data);
 
 function showMap(){
     $('#map-canvas').fadeIn(2000);
+    initialize();
 };

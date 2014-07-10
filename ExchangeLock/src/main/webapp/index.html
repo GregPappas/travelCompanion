@@ -21,14 +21,14 @@
         }
     </style>
 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
     <style type="text/css">
         html { height: 100% }
         body { height: 100%; margin: 0; padding: 0 }
         #map-canvas { height: 300px; width: 90%; margin: 0px auto;}
     </style>
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_zktMnA86SsmQWoWevHku1XEm3xtxTDU">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_zktMnA86SsmQWoWevHku1XEm3xtxTDU&v=3.exp">
     </script>
 
     <script type="text/javascript">
@@ -41,21 +41,24 @@
             mapOptions);
       }
       google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
 
 
 </head>
 <body id="gradient" onload="splashTransition()">
-    <div id="logo_container">
-        <img src="../images/Halifax_logo_white.svg"  class="halifax_logo"/>
+<div id="logo_container">
+    <img src="../images/Halifax_logo_white.svg" class="halifax_logo"/>
+</div>
+<p style="color:white;" id="click_me" onclick="showMap()"> CLICK ME </p>
+
+<div id="content_body">
+    <div id="splash_page_content">
+        <img src="../images/travel_extra.svg"/>
     </div>
-    <p style="color:white;" id="click_me" onclick="showMap()"> CLICK ME </p>
-    <div id="content_body">
-        <div id="splash_page_content">
-            <img src="../images/travel_extra.svg"/>
-        </div>
     </div>
     <div id="map-canvas"></div>
-    <div id="footer"/>
+    <div id="footer"></div>
+
 </body>
 </html>
