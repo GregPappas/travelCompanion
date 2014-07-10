@@ -1,0 +1,12 @@
+#gradient{
+   background: -webkit-linear-gradient(#0065A8, #062f61); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(#0065A8, #062f61); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(#0065A8, #062f61); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(#0065A8, #062f61); /* Standard syntax */
+   }
+.jqm-header, .ui-header, ui-bar-inherit{
+    background:none;
+}
+
+.halifax_logo{height:40%; width:100%;}
+#logo_container{width:40%; margin:0px auto;}
