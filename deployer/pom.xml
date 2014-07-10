@@ -47,7 +47,7 @@
 								<pingURL>http://tjasink.com/travelextras</pingURL>
 								<pingTimeout>60000</pingTimeout>
 								<properties>
-									<context>/</context>
+									<context>/travelextras</context>
 								</properties>
 							</deployable>
 						</deployables>
