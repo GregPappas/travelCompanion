@@ -16,6 +16,12 @@
 			<version>1.0-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
+        <dependency>
+            <groupId>com.lloydstsb.rest</groupId>
+            <artifactId>rest-demo-v1</artifactId>
+            <version>0.0.2.demo-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -33,7 +39,7 @@
 						<type>runtime</type>
 						<properties>
 							<cargo.hostname>tjasink.com</cargo.hostname>
-							<cargo.remote.username>healthjoiner-tjasink</cargo.remote.username>
+							<cargo.remote.username>tjasink-tomcat</cargo.remote.username>
 							<cargo.remote.password>password</cargo.remote.password>
 							<cargo.servlet.port>80</cargo.servlet.port>
 						</properties>
@@ -47,9 +53,19 @@
 								<pingURL>http://tjasink.com/travelextras</pingURL>
 								<pingTimeout>60000</pingTimeout>
 								<properties>
-									<context>/</context>
+									<context>/travelextras</context>
 								</properties>
 							</deployable>
+                            <deployable>
+                                <groupId>com.lloydstsb.rest</groupId>
+                                <artifactId>rest-demo-v1</artifactId>
+                                <type>war</type>
+                                <pingURL>http://tjasink.com/rest-bank/contacts</pingURL>
+                                <pingTimeout>60000</pingTimeout>
+                                <properties>
+                                    <context>/rest-bank</context>
+                                </properties>
+                            </deployable>
 						</deployables>
 					</deployer>
 				</configuration>
