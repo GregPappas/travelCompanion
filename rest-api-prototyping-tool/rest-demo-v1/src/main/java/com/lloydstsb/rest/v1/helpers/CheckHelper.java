@@ -9,18 +9,21 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.lloydstsb.rest.v1.data.ArrangementServiceDataIpsum;
-import com.lloydstsb.rest.v1.data.ArrangementStateType;
-import com.lloydstsb.rest.v1.data.ArrangementWrapper;
-import com.lloydstsb.rest.v1.data.BeneficiaryDataIpsum;
-import com.lloydstsb.rest.v1.data.TransactionsDataIpsum;
+import com.lloydstsb.rest.v1.data.*;
 import com.lloydstsb.rest.v1.valueobjects.Beneficiary;
 
 public class CheckHelper 
 {
 	private BeneficiaryDataIpsum beneficiaryData = new BeneficiaryDataIpsum();
 	private ArrangementServiceDataIpsum arrangementData = new ArrangementServiceDataIpsum();
-	
+	private CustomersDataIpsum customersData = new CustomersDataIpsum();
+
+    public boolean checkTransacationsDisabled(String userId)
+    {
+       return customersData.getCustomers().get(userId).getAccountFrozen();
+    }
+
+
 	public int checkSize(int numberToCheck)
 	{
 		if(numberToCheck>0 && numberToCheck <= 50)

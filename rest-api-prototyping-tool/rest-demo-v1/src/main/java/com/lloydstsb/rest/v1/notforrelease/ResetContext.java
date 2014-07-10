@@ -32,7 +32,7 @@ public class ResetContext {
 		   phoneNumbers.instantiatePhoneNumbers();
 		   customers.instantiateCustomers();
 		   ArrangementServiceDataIpsum arrangements = new ArrangementServiceDataIpsum();
-		   arrangements.instantiateCustomersArrangements();
+		   arrangements.instantiateExchangeLockCustomersArrangements();
 		   TransactionsDataIpsum transactions = new TransactionsDataIpsum();
 		   transactions.readAndParseCSVFile();
 		   BeneficiaryDataIpsum beneficiary = new BeneficiaryDataIpsum();

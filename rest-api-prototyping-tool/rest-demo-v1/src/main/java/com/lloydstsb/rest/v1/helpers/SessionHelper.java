@@ -62,7 +62,8 @@ public class SessionHelper{
 		getSession().setAttribute(transaction.getId(), transaction);
 
 	}
-	
+
+
 	public Transaction returnTransactionSessionVariable(String transactionId)
 	{
 		if (getSession().getAttribute(transactionId)!=null) 

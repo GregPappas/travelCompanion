@@ -11,15 +11,49 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.lloydstsb.rest.v1.data.ArrangementServiceDataIpsum;
-import com.lloydstsb.rest.v1.data.ArrangementStateType;
-import com.lloydstsb.rest.v1.data.ArrangementWrapper;
+import com.lloydstsb.rest.v1.data.*;
 import com.lloydstsb.rest.v1.helpers.ObjectGenerator;
+import com.lloydstsb.rest.v1.helpers.SessionHelper;
 import com.lloydstsb.rest.v1.valueobjects.CurrencyAmount;
+import com.lloydstsb.rest.v1.valueobjects.Payment;
+import com.lloydstsb.rest.v1.valueobjects.Transaction;
+
+import static com.lloydstsb.rest.v1.data.PersistenceContainer.*;
 
 @Path("/changeState")
 public class ChangeArrangementState {
-	
+
+    private CustomersDataIpsum customerDataIpsum = new CustomersDataIpsum();
+
+
+
+    @Path("/checkflag/{userId}")
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response checkFlag(@Context HttpServletRequest request, @Context HttpServletResponse response,
+                              @PathParam("userId") String userId)
+    {
+        ExchangeLockCustomer customer = customerDataIpsum.getCustomers().get(userId);
+        if(customer.getAccountFrozen())
+        {
+            Payment payment =   PersistenceContainer.getInstance().getPayment(userId);
+            return Response.status(200).entity(payment).build();
+        }
+        else
+        {
+            return Response.status(304).build();
+        }
+    }
+
+    @Path("/checkflag/toggleflag/{userId}")
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response toggleFlag(@Context HttpServletRequest request, @Context HttpServletResponse response, @PathParam("userId") String userId){
+     customerDataIpsum.getCustomers().get(userId).toggleAccountFrozen();;
+
+        return Response.status(200).entity(customerDataIpsum.getCustomers().get(userId).getAccountFrozen()).build();
+    }
+
 	@Path("/{arrangementId}/{state}")
 	@GET
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

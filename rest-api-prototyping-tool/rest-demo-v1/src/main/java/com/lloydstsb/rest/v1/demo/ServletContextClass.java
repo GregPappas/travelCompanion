@@ -33,7 +33,7 @@ public class ServletContextClass implements ServletContextListener {
 		   phoneNumbers.instantiatePhoneNumbers();
 		   customers.instantiateCustomers();
 		   ArrangementServiceDataIpsum arrangements = new ArrangementServiceDataIpsum();
-		   arrangements.instantiateCustomersArrangements();
+		   arrangements.instantiateExchangeLockCustomersArrangements();
 		   TransactionsDataIpsum transactions = new TransactionsDataIpsum();
             try {
                 transactions.readAndParseCSVFile();

@@ -23,11 +23,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.lloydstsb.rest.v1.data.ArrangementServiceDataIpsum;
-import com.lloydstsb.rest.v1.data.ArrangementWrapper;
-import com.lloydstsb.rest.v1.data.BeneficiaryDataIpsum;
-import com.lloydstsb.rest.v1.data.ErrorHelper;
-import com.lloydstsb.rest.v1.data.TransactionsDataIpsum;
+import com.lloydstsb.rest.v1.data.*;
 import com.lloydstsb.rest.v1.helpers.ArrangementHelper;
 import com.lloydstsb.rest.v1.helpers.CheckHelper;
 import com.lloydstsb.rest.v1.helpers.MiscHelper;
@@ -418,12 +414,22 @@ public class ArrangementsServiceImpl
 			@FormParam("currencyCode") String currencyCode, @FormParam("reference") String reference) {
 		
 		String userId = sessionHelper.getUserId(request);
+        CustomersDataIpsum customer = new CustomersDataIpsum();
+        ExchangeLockCustomer exchangeLockCustomer = customer.getCustomers().get(userId);
+        exchangeLockCustomer.toggleAccountFrozen();
 		if (checkHelper.checkUserIdIsNull(userId))
 		{
 			Error e = errorHelper.getUnauthorisedError();
 			return Response.status(Integer.valueOf(e.getCode())).entity(e).build();
 		}
-		
+
+        if(checkHelper.checkTransacationsDisabled(userId)){
+            Error e = errorHelper.getPaymentsDisabledError();
+            return Response.status(Integer.valueOf(e.getCode())).entity(e).build();
+
+        }
+        PersistenceContainer.getInstance().resetPayment();
+
 		if (!checkHelper.checkArrangementIdBelongsToUser(userId,arrangementId))
 		{
 			Error e = errorHelper.getNotFound();
@@ -462,6 +468,7 @@ public class ArrangementsServiceImpl
 		ArrangementWrapper wrapper = arrangementData.getArrangementWrapper(arrangementId);
 		Payment payment = objectGenerator.createNewPayment(reference, transactionData.getNewTransactionId());
 		Transaction transaction = objectGenerator.createNewTransaction(amount, payment.getPaymentId(),date,currencyCode, arrangementId, "PMNT", "Paying money to someone",wrapper);
+        PersistenceContainer.getInstance().setPayment(userId, payment);
 		sessionHelper.setTransaction(transaction);
 		return Response.status(201).entity(payment).build();
 	}
@@ -483,7 +490,12 @@ public class ArrangementsServiceImpl
 			Error e = errorHelper.getUnauthorisedError();
 			return Response.status(Integer.valueOf(e.getCode())).entity(e).build();
 		}
-		
+
+        if(checkHelper.checkTransacationsDisabled(userId)){
+            Error e = errorHelper.getPaymentsDisabledError();
+            return Response.status(Integer.valueOf(e.getCode())).entity(e).build();
+
+        }
 		if (!miscHelper.authenticate(userId, password))
 		{
 			Error e = errorHelper.getInvalidCredentialError(); 

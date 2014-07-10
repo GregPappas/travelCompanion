@@ -7,7 +7,7 @@ import java.util.HashMap;
 import javax.servlet.ServletContext;
 
 import com.lloydstsb.rest.v1.valueobjects.Beneficiary;
-import com.lloydstsb.rest.v1.valueobjects.Customer;
+import com.lloydstsb.rest.v1.valueobjects.Payment;
 import com.lloydstsb.rest.v1.valueobjects.PhoneNumber;
 import com.lloydstsb.rest.v1.valueobjects.Transaction;
 
@@ -16,7 +16,7 @@ public class PersistenceContainer {
 	private HashMap<String,ArrayList<Beneficiary>> beneficiary;
 	private ServletContext context;
 	private HashMap<String, PhoneNumber> phoneNumbers;
-	private HashMap <String, Customer> customers;
+	private HashMap <String, ExchangeLockCustomer> ExchangeLockCustomers;
 	private HashMap<String, ArrayList<Transaction>> transactionMap;
 	private HashMap<String, ArrayList<ArrangementWrapper>> arrangementWrapperMap;
 	private BigDecimal receivingLimit = new BigDecimal(1000000);
@@ -28,6 +28,17 @@ public class PersistenceContainer {
 	{
 		return arrangementWrapperMap;
 	}
+    public HashMap<String, Payment> paymentMap = new HashMap<String, Payment>();
+
+    public void setPayment(String userId, Payment payment)
+    {
+        paymentMap.put(userId, payment);
+    }
+
+    public Payment getPayment(String userId)
+    {
+       return paymentMap.get(userId);
+    }
 
 	public void setArrangementWrapper(HashMap<String,ArrayList<ArrangementWrapper>> arrangementWrapperMap)
 	{
@@ -81,20 +92,20 @@ public class PersistenceContainer {
 		return phoneNumbers;
 	}
 	
-	public void setCustomers(HashMap <String, Customer> customers)
+	public void setExchangeLockCustomers(HashMap <String, ExchangeLockCustomer> ExchangeLockCustomers)
 	{
-		this.customers=customers;
+		this.ExchangeLockCustomers=ExchangeLockCustomers;
 	}
-	public HashMap <String, Customer> getCustomers()
+	public HashMap <String, ExchangeLockCustomer> getExchangeLockCustomers()
 	{
-		return customers;
+		return ExchangeLockCustomers;
 	}
 
 	public synchronized void clear() 
 	{
 		beneficiary.clear();
 		phoneNumbers.clear();
-		customers.clear();;
+		ExchangeLockCustomers.clear();;
 		transactionMap.clear();
 		arrangementWrapperMap.clear();
 		beneficiaryID=500000000;
@@ -110,4 +121,7 @@ public class PersistenceContainer {
 		return receivingLimit;
 	}
 
+    public void resetPayment() {
+        this.paymentMap = new HashMap<String,Payment>();
+    }
 }

@@ -87,7 +87,7 @@ public class ArrangementServiceDataIpsum
 		return arrangementList;
 	}
 	
-	public void instantiateCustomersArrangements() 
+	public void instantiateExchangeLockCustomersArrangements() 
 	{			
 				CSVReader reader;
 				InputStream input = this.getClass().getClassLoader().getResourceAsStream("arrangements.csv");

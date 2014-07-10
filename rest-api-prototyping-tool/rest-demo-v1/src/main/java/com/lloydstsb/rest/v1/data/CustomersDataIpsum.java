@@ -8,21 +8,21 @@ import com.lloydstsb.rest.v1.valueobjects.Customer;
 import com.lloydstsb.rest.v1.valueobjects.PhoneNumber;
 public class CustomersDataIpsum 
 {
-	private HashMap <String, Customer> customers;
+	private HashMap <String, ExchangeLockCustomer> customers;
 	
-	public HashMap<String, Customer> getCustomers()
+	public HashMap<String, ExchangeLockCustomer> getCustomers()
 	{
-		return PersistenceContainer.getInstance().getCustomers();
+		return PersistenceContainer.getInstance().getExchangeLockCustomers();
 	}
 	
 	
 	public void instantiateCustomers ()
 	{
-		customers = new HashMap<String, Customer>();
+		customers = new HashMap<String, ExchangeLockCustomer>();
 		PhoneNumbersDataIpsum numbersData = new PhoneNumbersDataIpsum();
 
-		
-		Customer customer1 = new Customer();
+
+        ExchangeLockCustomer customer1 = new ExchangeLockCustomer();
 		customer1.setId("69877");
 		customer1.setEmail("69877@lloydstsb.com");
 		customer1.setFirstname("John");
@@ -37,8 +37,8 @@ public class CustomersDataIpsum
 		address1.setSecondLine("Lazy Town");
 		address1.setPostCode("s13 3sm");
 		customer1.setAddress(address1);
-		
-		Customer customer2 = new Customer();
+
+        ExchangeLockCustomer customer2 = new ExchangeLockCustomer();
 		customer2.setId("69888");
 		customer2.setEmail("69888@lloydstsb.com");
 		customer2.setFirstname("Jane");
@@ -51,7 +51,7 @@ public class CustomersDataIpsum
 		customer2.setTelephoneNumbers(phoneList2);
 		customer2.setAddress(address1);
 
-		Customer customer3 = new Customer();
+        ExchangeLockCustomer customer3 = new ExchangeLockCustomer();
 		customer3.setId("79882");
 		customer3.setEmail("79882@lloydstsb.com");
 		customer3.setFirstname("Jhon");
@@ -68,8 +68,8 @@ public class CustomersDataIpsum
 		address2.setSecondLine("Beeish");
 		address2.setPostCode("k10 1FM");
 		customer3.setAddress(address2);
-		
-		Customer customer4 = new Customer();
+
+        ExchangeLockCustomer customer4 = new ExchangeLockCustomer();
 		customer4.setId("80082");
 		customer4.setEmail("80082@lloydstsb.com");
 		customer4.setFirstname("Anne");
@@ -82,8 +82,8 @@ public class CustomersDataIpsum
 		phoneList4.add(numbersData.getNumber("04653314145"));
 		customer4.setTelephoneNumbers(phoneList4);
 		customer4.setAddress(address2);
-		
-		Customer customerS1 = new Customer();
+
+        ExchangeLockCustomer customerS1 = new ExchangeLockCustomer();
 		customer4.setId("69006");
 		customer4.setEmail("69006@lloydstsb.com");
 		customer4.setFirstname("Antonie");
@@ -100,8 +100,8 @@ public class CustomersDataIpsum
 		address2.setSecondLine("Brixton");
 		address2.setPostCode("SW3 1YT");
 		customer4.setAddress(addressS1);
-		
-		Customer customerS2 = new Customer();
+
+        ExchangeLockCustomer customerS2 = new ExchangeLockCustomer();
 		customer4.setId("69007");
 		customer4.setEmail("69007@lloydstsb.com");
 		customer4.setFirstname("Andrew");
@@ -118,8 +118,8 @@ public class CustomersDataIpsum
 		address2.setSecondLine("London Bridge");
 		address2.setPostCode("S13 1AG");
 		customer4.setAddress(addressS2);
-		
-		Customer customerS3 = new Customer();
+
+        ExchangeLockCustomer customerS3 = new ExchangeLockCustomer();
 		customer4.setId("69008");
 		customer4.setEmail("69008@lloydstsb.com");
 		customer4.setFirstname("Helena");
@@ -136,8 +136,8 @@ public class CustomersDataIpsum
 		address2.setSecondLine("Finsbury Park");
 		address2.setPostCode("SL6 6LJ");
 		customer4.setAddress(addressS3);
-		
-		Customer customerS4 = new Customer();
+
+        ExchangeLockCustomer customerS4 = new ExchangeLockCustomer();
 		customer4.setId("69009");
 		customer4.setEmail("69009@lloydstsb.com");
 		customer4.setFirstname("David");
@@ -154,9 +154,9 @@ public class CustomersDataIpsum
 		address2.setSecondLine("Seven Sisters");
 		address2.setPostCode("EH5 7KI");
 		customer4.setAddress(addressS4);
-		
-		
-		Customer customerS5 = new Customer();
+
+
+        ExchangeLockCustomer customerS5 = new ExchangeLockCustomer();
 		customer4.setId("69010");
 		customer4.setEmail("69010@lloydstsb.com");
 		customer4.setFirstname("Lewis");
@@ -174,7 +174,7 @@ public class CustomersDataIpsum
 		address2.setPostCode("S45 6YR");
 		customer4.setAddress(addressS5);
 
-		Customer customerg1 = new Customer();
+        ExchangeLockCustomer customerg1 = new ExchangeLockCustomer();
 		customerg1.setId("69000");
 		customerg1.setEmail("69000@lloydstsb.com");
 		customerg1.setFirstname("Fernando");
@@ -192,7 +192,7 @@ public class CustomersDataIpsum
 		addressg1.setPostCode("S1 MP5");
 		customerg1.setAddress(addressg1);
 
-		Customer customerg2 = new Customer();
+        ExchangeLockCustomer customerg2 = new ExchangeLockCustomer();
 		customerg2.setId("69001");
 		customerg2.setEmail("69001@lloydstsb.com");
 		customerg2.setFirstname("Allonso");
@@ -209,8 +209,8 @@ public class CustomersDataIpsum
 		addressg2.setSecondLine("London");
 		addressg2.setPostCode("SW1A 1AA");
 		customerg2.setAddress(addressg2);
-		
-		Customer customerg3 = new Customer();
+
+        ExchangeLockCustomer customerg3 = new ExchangeLockCustomer();
 		customerg3.setId("69002");
 		customerg3.setEmail("69002@lloydstsb.com");
 		customerg3.setFirstname("Jerry");
@@ -227,8 +227,8 @@ public class CustomersDataIpsum
 		addressg3.setSecondLine("London");
 		addressg3.setPostCode("SW2A 2AA");
 		customerg3.setAddress(addressg3);
-		
-		Customer customerg4 = new Customer();
+
+        ExchangeLockCustomer customerg4 = new ExchangeLockCustomer();
 		customerg4.setId("69003");
 		customerg4.setEmail("69003@lloydstsb.com");
 		customerg4.setFirstname("Jerry");
@@ -245,8 +245,8 @@ public class CustomersDataIpsum
 		addressg4.setSecondLine("London");
 		addressg4.setPostCode("SW3A 3AA");
 		customerg4.setAddress(addressg3);
-		
-		Customer customerg5 = new Customer();
+
+        ExchangeLockCustomer customerg5 = new ExchangeLockCustomer();
 		customerg5.setId("69004");
 		customerg5.setEmail("69004@lloydstsb.com");
 		customerg5.setFirstname("Super");
@@ -263,9 +263,9 @@ public class CustomersDataIpsum
 		addressg5.setSecondLine("London");
 		addressg5.setPostCode("SW4A 4AA");
 		customerg5.setAddress(addressg5);
-		
-		
-		Customer customerg6 = new Customer();
+
+
+        ExchangeLockCustomer customerg6 = new ExchangeLockCustomer();
 		customerg6.setId("69005");
 		customerg6.setEmail("69005@lloydstsb.com");
 		customerg6.setFirstname("Luigi");
@@ -282,9 +282,9 @@ public class CustomersDataIpsum
 		addressg6.setSecondLine("London");
 		addressg6.setPostCode("SW5A 5AA");
 		customerg6.setAddress(addressg6);
-		
-		
-		Customer customer111 = new Customer();
+
+
+        ExchangeLockCustomer customer111 = new ExchangeLockCustomer();
 		customer111.setId("69011");
 		customer111.setEmail("69011@lloydstsb.com");
 		customer111.setFirstname("Frederick");
@@ -299,9 +299,9 @@ public class CustomersDataIpsum
 		address111.setSecondLine("Bedrock");
 		address111.setPostCode("s3 1fm");
 		customer111.setAddress(address111);
-		
-		
-		Customer customer112 = new Customer();
+
+
+        ExchangeLockCustomer customer112 = new ExchangeLockCustomer();
 		customer112.setId("69012");
 		customer112.setEmail("69012@lloydstsb.com");
 		customer112.setFirstname("Whelma");
@@ -316,9 +316,9 @@ public class CustomersDataIpsum
 		address112.setSecondLine("Bedrock");
 		address112.setPostCode("s3 1fm");
 		customer112.setAddress(address112);
-		
-		
-		Customer customer113 = new Customer();
+
+
+        ExchangeLockCustomer customer113 = new ExchangeLockCustomer();
 		customer113.setId("69013");
 		customer113.setEmail("69013@lloydstsb.com");
 		customer113.setFirstname("George");
@@ -334,7 +334,7 @@ public class CustomersDataIpsum
 		address113.setPostCode("JT2 3BS");
 		customer113.setAddress(address113);
 
-		Customer customer114 = new Customer();
+        ExchangeLockCustomer customer114 = new ExchangeLockCustomer();
 		customer114.setId("69014");
 		customer114.setEmail("69014@lloydstsb.com");
 		customer114.setFirstname("Judy");
@@ -349,8 +349,8 @@ public class CustomersDataIpsum
 		address114.setSecondLine("Orbit");
 		address114.setPostCode("JT2 3BS");
 		customer114.setAddress(address114);
-		
-		Customer customer115 = new Customer();
+
+        ExchangeLockCustomer customer115 = new ExchangeLockCustomer();
 		customer115.setId("69015");
 		customer115.setEmail("69015@lloydstsb.com");
 		customer115.setFirstname("Adrian");
@@ -392,7 +392,7 @@ public class CustomersDataIpsum
 
 
 
-		PersistenceContainer.getInstance().setCustomers(customers);
+		PersistenceContainer.getInstance().setExchangeLockCustomers(customers);
 	}
 
 }
