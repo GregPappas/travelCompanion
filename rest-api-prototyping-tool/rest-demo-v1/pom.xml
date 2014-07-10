@@ -164,36 +164,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>1.7</version>
-                        <executions>
-                            <execution>
-                                <id>copy-dist-files</id>
-                                <phase>package</phase>
-                                <configuration>
-                                    <target>
-                                        <zip destfile="target/rest-bank.zip">
-                                            <fileset file="target/jetty-runner.jar" />
-                                            <fileset file="target/${project.build.finalName}.war"/>
-                                            <fileset file="../rest-doc/target/rest-doc.war"/>
-                                            <fileset file="README.txt"/>
-                                            <zipfileset prefix="jmeter/jmModules" dir="${project.basedir}/src/test/jmModules">
-                                                <include name="**"/>
-                                            </zipfileset>
-                                            <zipfileset prefix="jmeter/main" dir="${project.basedir}/src/test/jmeter">
-                                                <include name="**"/>
-                                            </zipfileset>
-                                        </zip>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
