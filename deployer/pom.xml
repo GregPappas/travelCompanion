@@ -60,7 +60,7 @@
                                 <groupId>com.lloydstsb.rest</groupId>
                                 <artifactId>rest-demo-v1</artifactId>
                                 <type>war</type>
-                                <pingURL>http://tjasink.com/rest-bank</pingURL>
+                                <pingURL>http://tjasink.com/rest-bank/contacts</pingURL>
                                 <pingTimeout>60000</pingTimeout>
                                 <properties>
                                     <context>/rest-bank</context>
