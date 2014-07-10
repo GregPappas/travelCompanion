@@ -1,0 +1,69 @@
+@sublistLinkColour: lighten(@lloydsLightGreen, 17%);
+
+nav {
+	padding: 0;
+	background-color: #FFF;
+	overflow: auto;
+}
+nav ul {
+	padding: 0;
+	margin: @padding;
+}
+nav ul ul {
+	margin: 0;
+	padding: 0;
+}
+nav li {
+	list-style: none;
+	margin: 0;
+	line-height: 1;
+}
+nav ul a {
+	padding: 8px 14px;
+	border: 1px solid @boxBorderColor;
+	border-bottom: none;
+	display: block;
+	background-color: #FFF;
+	margin: 0 0 0 -1px;
+}
+nav ul ul a, nav ul li.active ul a {
+	background-color: @sublistLinkColour;
+	border-color: @boxBorderColor;
+	color: @lloydsDarkGreen;
+	text-shadow: none;
+}
+nav > ul > li:first-child > a {
+	.rounded(2px 2px 0 0);
+}
+nav > ul > li:last-child {
+	border-bottom: 1px solid @boxBorderColor;
+}
+nav li.active {
+	background-color: #FFF;
+}
+nav li.active a {
+	position: relative;
+	background-color: @lloydsDarkGreen;
+	color: #FFF;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+nav li.active a:hover {
+	background-color: @lloydsDarkGreen;
+	color: #FFF;
+}
+nav .icon-chevron-right {
+	float: right;
+	margin-top: 2px;
+	margin-right: -6px;
+	opacity: 0.25;
+}
+nav .icon-chevron-right span {
+	display: none;
+}
+nav li a:hover, nav li.active li a:hover {
+	background-color: #F5F5F5;
+	color: #333;
+}
+nav li a:hover .icon-chevron-right {
+	opacity: 0.5;
+}

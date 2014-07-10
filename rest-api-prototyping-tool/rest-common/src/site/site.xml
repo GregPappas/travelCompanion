@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="RestAPI">
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.0</version>
+	</skin>
+
+	<custom>
+		<fluidoSkin>
+			<topBarEnabled>false</topBarEnabled>
+			<sideBarEnabled>true</sideBarEnabled>
+		</fluidoSkin>
+	</custom>
+
+	<bannerLeft>
+		<name>Lloyds Banking Group REST API</name>
+		<src>images/lbg.png</src>
+		<href>/</href>
+	</bannerLeft>
+
+	<body>
+		<menu name="Parent">
+			<item name="Parent" href="../" />
+		</menu>
+
+		<menu name="rest-common-v1">
+			<item name="Checkstyle" href="checkstyle.html" />
+			<item name="Dependency convergence" href="dependency-convergence.html" />
+			<item name="Findbugs" href="findbugs.html" />
+			<item name="Javadocs" href="apidocs" />
+			<item name="Source code" href="xref" />
+			<item name="Test coverage" href="cobertura" />
+		</menu>
+	</body>
+</project>

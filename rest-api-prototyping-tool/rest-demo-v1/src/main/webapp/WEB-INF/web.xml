@@ -1,0 +1,87 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+<display-name>Restful Web Application</display-name>
+
+    <servlet>
+        <servlet-name>RESTServlet</servlet-name>
+        <servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
+        <init-param>
+            <param-name>jaxrs.serviceClasses</param-name>
+            <param-value>
+                com.lloydstsb.rest.v1.demo.ArrangementsServiceImpl,
+                com.lloydstsb.rest.v1.demo.CustomerDetailsServiceImpl,
+                com.lloydstsb.rest.v1.demo.BeneficiariesServiceImpl,
+                com.lloydstsb.rest.v1.demo.LoginServiceImpl,
+                com.lloydstsb.rest.v1.demo.ContactServiceImpl,
+                com.lloydstsb.rest.v1.notforrelease.ChangeArrangementState,
+                com.lloydstsb.rest.v1.notforrelease.ResetContext
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>jaxrs.inInterceptors</param-name>
+            <param-value>
+                org.apache.cxf.interceptor.LoggingInInterceptor
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>jaxrs.outInterceptors</param-name>
+            <param-value>
+                org.apache.cxf.interceptor.LoggingOutInterceptor
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>jaxrs.providers</param-name>
+            <param-value>
+                org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>jaxrs.extensions</param-name>
+            <param-value>
+                xml=application/xml
+                json=application/json
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>jaxrs.properties</param-name>
+            <param-value>
+                property1=value
+                property2=value
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<listener>
+	    <listener-class>com.lloydstsb.rest.v1.demo.ServletContextClass</listener-class>
+	</listener>
+	
+    <servlet-mapping>
+        <servlet-name>RESTServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>cross-origin</filter-name>
+        <filter-class>org.eclipse.jetty.servlets.CrossOriginFilter</filter-class>
+        <init-param>
+            <param-name>allowedOrigins</param-name>
+            <param-value>*</param-value>
+        </init-param>
+        <init-param>
+            <param-name>allowedMethods</param-name>
+            <param-value>*</param-value>
+        </init-param>
+        <init-param>
+            <param-name>allowedHeaders</param-name>
+            <param-value>*</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>cross-origin</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>

@@ -1,0 +1,8 @@
+nav {
+	position: static;
+	float: left;
+}
+nav li a {
+	border: 1px solid #E5E5E5;
+	width: 230px;
+}

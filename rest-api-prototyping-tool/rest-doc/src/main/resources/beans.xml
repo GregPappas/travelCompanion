@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<context:component-scan base-package="com.lloydstsb.rest.common" />
+	<context:component-scan base-package="com.lloydstsb.rest.validation" />
+	<context:component-scan base-package="com.lloydstsb.rest.documentation" />
+	<context:component-scan base-package="com.lloydstsb.rest.wadl" />
+	<context:component-scan base-package="com.lloydstsb.rest.v1" />
+
+	<jaxrs:server id="api" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="arrangementDocumentation" />
+			<ref bean="sessionDocumentation" />
+			<ref bean="customerDocumentation" />
+			<!-- <ref bean="contentDataDocumentation" /> -->
+			<!--<ref bean="faqsDataDocumentation" />-->
+			<ref bean="contactsDataDocumentation" />
+			<ref bean="beneficiaryDocumentation" />
+			<!-- <ref bean="authenticationDocumentation" /> -->
+			<!--  <ref bean="switchStateDocumentation" /> -->
+			<!-- <ref bean="leadsDocumentation" />-->
+            <!-- <ref bean="loggingDocumentation" />  -->
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider" />
+
+			<ref bean="veryCustomWadlGenerator" />
+			<ref bean="jaxbElementRenamer" />
+
+			<ref bean="webApplicationExceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:resourceComparator>
+			<ref bean="customResourceComparator" />
+		</jaxrs:resourceComparator>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+			<entry key="html" value="text/html" />
+			<entry key="txt" value="text/plain" />
+		</jaxrs:extensionMappings>
+		<jaxrs:outInterceptors>
+			<ref bean="jaxbDevelopmentOnlyOutInterceptor" />
+		</jaxrs:outInterceptors>
+	</jaxrs:server>
+
+</beans>

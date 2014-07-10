@@ -1,0 +1,2 @@
+apiName,portNumber,responseBodyType,contentType,user_id,user_password,user_arrangement_current,beneficiary1AccNo,beneficiary1SortCode,beneficiary1Name,payBeneficiary_id,user_arrangement_creditCard,invalid_password,invalid_username,contextPathName
+localhost,8180,application/json,application/x-www-form-urlencoded,69000,69000,20756882123456,5011550033,254136,Betty White,11111111111111,28682942123456,1234,2321321,rest-bank,

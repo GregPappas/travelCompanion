@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="RestAPI">
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.0</version>
+	</skin>
+
+	<custom>
+		<fluidoSkin>
+			<topBarEnabled>false</topBarEnabled>
+			<sideBarEnabled>true</sideBarEnabled>
+		</fluidoSkin>
+	</custom>
+
+	<bannerLeft>
+		<name>Lloyds Banking Group REST API</name>
+		<src>images/lbg.png</src>
+		<href>/</href>
+	</bannerLeft>
+
+	<body>
+		<menu name="Parent">
+			<item name="Parent" href="../" />
+		</menu>
+
+		<menu name="rest-api-v1">
+			<item name="Checkstyle" href="../rest-api-v1/checkstyle.html" />
+			<item name="Dependency convergence" href="../rest-api-v1/dependency-convergence.html" />
+			<item name="Findbugs" href="../rest-api-v1/findbugs.html" />
+			<item name="Javadocs" href="../rest-api-v1/apidocs" />
+			<item name="Source code" href="../rest-api-v1/xref" />
+			<item name="Test coverage" href="../rest-api-v1/cobertura" />
+		</menu>
+
+		<menu name="rest-common">
+			<item name="Checkstyle" href="../rest-common/checkstyle.html" />
+			<item name="Dependency convergence" href="../rest-common/dependency-convergence.html" />
+			<item name="Findbugs" href="../rest-common/findbugs.html" />
+			<item name="Javadocs" href="../rest-common/apidocs" />
+			<item name="Source code" href="../rest-common/xref" />
+			<item name="Test coverage" href="../rest-common/cobertura" />
+		</menu>
+
+		<menu name="rest-impl-v1">
+			<item name="Checkstyle" href="../rest-impl-v1/checkstyle.html" />
+			<item name="Dependency convergence" href="../rest-impl-v1/dependency-convergence.html" />
+			<item name="Findbugs" href="../rest-impl-v1/findbugs.html" />
+			<item name="Javadocs" href="../rest-impl-v1/apidocs" />
+			<item name="Source code" href="../rest-impl-v1/xref" />
+			<item name="Test coverage" href="../rest-impl-v1/cobertura" />
+		</menu>
+
+		<menu name="rest-validation">
+			<item name="Checkstyle" href="../rest-validation/checkstyle.html" />
+			<item name="Dependency convergence" href="../rest-validation/dependency-convergence.html" />
+			<item name="Findbugs" href="../rest-validation/findbugs.html" />
+			<item name="Javadocs" href="../rest-validation/apidocs" />
+			<item name="Source code" href="../rest-validation/xref" />
+			<item name="Test coverage" href="../rest-validation/cobertura" />
+		</menu>
+	</body>
+</project>

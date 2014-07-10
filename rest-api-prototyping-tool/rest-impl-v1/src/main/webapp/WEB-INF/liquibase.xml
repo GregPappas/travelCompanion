@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<changeSet id="1" author="dermotb">
+
+		<insert tableName="bank_bankuser">
+			<column name="userId" value="874774678" />
+			<column name="password" value="aaaaaaaaaaaaaaa" />
+			<column name="mi" value="t35ting" />
+			<column name="prefixTitle" value="Mr" />
+			<column name="firstname" value="Ganesh" />
+			<column name="lastname" value="Ahirrao" />
+			<column name="showTsandCs" valueNumeric="0" />
+			<column name="showWelcomeScreen" valueNumeric="0" />
+			<column name="loginAttemptsLeft" valueNumeric="5" />
+			<column name="miAttemptsLeft" valueNumeric="5" />
+			<column name="dormant" valueNumeric="0" />	
+		</insert>
+		
+		<insert tableName="bank_bankaccount">
+			<column name="user_id" value="874774678" />
+			<column name="arrangementId" value="ACCOUNT||12345678||200001" />
+			<column name="accountType" value="CUR" />
+			<column name="hasWarnings" valueNumeric="0" />
+			<column name="warnings" value="" />
+			<column name="hasReminders" valueNumeric="0" />
+			<column name="reminders" value="" />
+			<column name="isGhostAccount" valueNumeric="0" />
+			<column name="accountName" value="Joint" />
+			<column name="sortCode" value="200001" />
+			<column name="accountNumber" value="12345678" />
+			<column name="balance" value="150" />
+			<column name="balanceCurrency" value="GBP" />
+			<column name="loanNumber" value="GBP" />
+			<column name="availableBalance" value="GBP" />
+			<column name="overdraftLimit" value="GBP" />
+			<column name="cardNumber" value="GBP" />
+			<column name="creditLimit" value="GBP" />
+			<column name="totalEarned" valueNumeric="10" />
+			<column name="remainingAllowance" value="GBP" />
+			<column name="monthlyPayment" value="GBP" />
+			<column name="balanceAsAtDate" valueDate="2012-02-02T12:10:00" />
+			<column name="originalAmount" value="GBP" />
+			<column name="maturityDate" valueDate="2012-02-02T12:10:00" />
+			<column name="expiryDate" valueDate="2012-02-02T12:10:00" />
+			<column name="infoString" value="GBP" />
+		</insert>
+    
+		<insert tableName="bank_beneficiary">
+			<column name="id" value="50001" />
+			<column name="arrangementId_id" value="ACCOUNT||12345678||200001" />
+			<column name="name" value="Some Guy" />
+			<column name="sortCode" value="873564" />
+			<column name="accountNumber" value="12345678" />
+			<column name="transactionPending" valueNumeric="0" />
+			<column name="reference" value="" />
+			
+		</insert>
+		
+		<insert tableName="bank_transaction">
+			<column name="id" value="30002" />
+			<column name="amount" value="50" />
+			<column name="amountCurrency" value="GBP" />
+			<column name="description" value="Lunch" />
+			<column name="runningBalance" value="150" />
+			<column name="runningBalanceCurrency" value="GBP" />
+			<column name="arrangementId" value="ACCOUNT||12345678||200001" />
+			<column name="transactionDate" valueDate="2012-09-02T12:10:00" />
+		</insert>
+
+	</changeSet>
+</databaseChangeLog>

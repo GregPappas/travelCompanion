@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rest-bank</artifactId>
+        <groupId>com.lloydstsb.rest</groupId>
+        <version>0.0.2.demo-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>rest-demo-v1</artifactId>
+    <packaging>war</packaging>
+    <properties>
+        <server.port>8180</server.port>
+		
+        <maven.test.failure.ignore>false</maven.test.failure.ignore>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlets</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lloydstsb.rest</groupId>
+            <artifactId>rest-api-v1</artifactId>
+            <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                <artifactId>servlet-api</artifactId>
+                <groupId>javax.servlet</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-providers</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.16</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>${server.port}</value>
+                        </systemProperty>
+                    </systemProperties>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopPort>8005</stopPort>
+                    <stopKey>STOP</stopKey>
+                    <webApp>
+                        <contextPath>/rest-bank</contextPath>
+                    </webApp>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.lloydstsb.plugins</groupId>
+                <artifactId>jmeter-maven-plugin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <configuration>
+                    <jmeterProperties>
+                        <authServerPort>${server.port}</authServerPort>
+                        <authServerHost>localhost</authServerHost>
+                        <authServerProtocol>http</authServerProtocol>
+                    </jmeterProperties>
+                    <testFolder>src/test/jmeter</testFolder>
+                    <jmeterHome>${jmeter.home}</jmeterHome>
+                    <testFailureIgnore>${maven.test.failure.ignore}</testFailureIgnore>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>jmeter</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>dist</id>
+            <build>
+                <finalName>rest-bank</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>2.8</version>
+                        <executions>
+                            <execution>
+                                <id>download-runner</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.mortbay.jetty</groupId>
+                                            <artifactId>jetty-runner</artifactId>
+                                            <version>${jetty.version}</version>
+                                            <outputDirectory>${project.build.directory}</outputDirectory>
+                                            <destFileName>jetty-runner.jar</destFileName>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>copy-dist-files</id>
+                                <phase>package</phase>
+                                <configuration>
+                                    <target>
+                                        <zip destfile="target/rest-bank.zip">
+                                            <fileset file="target/jetty-runner.jar" />
+                                            <fileset file="target/${project.build.finalName}.war"/>
+                                            <fileset file="../rest-doc/target/rest-doc.war"/>
+                                            <fileset file="README.txt"/>
+                                            <zipfileset prefix="jmeter/jmModules" dir="${project.basedir}/src/test/jmModules">
+                                                <include name="**"/>
+                                            </zipfileset>
+                                            <zipfileset prefix="jmeter/main" dir="${project.basedir}/src/test/jmeter">
+                                                <include name="**"/>
+                                            </zipfileset>
+                                        </zip>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

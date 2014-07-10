@@ -1,0 +1,177 @@
+@import "elements.less";
+
+@boxBackgroundColour: #EEE;
+@boxBorderColor: #E5E5E5;
+@headerBackgroundColour: #333;
+
+@lloydsDarkGreen: #01864F;
+@lloydsLightGreen: #C6D7CB;
+@linkColour: @lloydsDarkGreen;
+@headerSmallColour: @lloydsLightGreen;
+@padding: 20px;
+@navWidth: 40%;
+@mainWidth: 60%;
+
+@import "bootstrap.less";
+@import "prettify.less";
+@import "sidenav.less";
+
+body {
+	background-color: #FFF;
+}
+h1 {
+	margin: 0 auto;
+	float: none;
+	padding: 0;
+	font-size: 40px;
+	text-align: center;
+	line-height: 1;
+}
+h1 small {
+	white-space: nowrap;
+}
+h2 {
+	margin-top: 0;
+	padding-top: 0;
+}
+h3 {
+	font-size: 20px;
+}
+header {
+	padding: @padding;
+	margin: 0;
+	.gradient(@headerBackgroundColour, darken(@headerBackgroundColour, 10%), @headerBackgroundColour);
+}
+header a {
+	padding: 0 10px;
+	color: #FFF;
+	text-shadow: 0 1px 2px #CCC;
+}
+header a:hover {
+	color: #FFF;
+	text-decoration: none;
+	border-bottom: 1px solid @lloydsDarkGreen;
+}
+footer {
+	padding-right: @padding;
+	padding-bottom: @padding;
+}
+footer small {
+	text-align: right;
+	display: block;
+}
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: @navWidth;
+	height: 100%
+	overflow: auto;
+}
+nav a {
+	white-space: nowrap;
+	min-width: 220px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+table.table {
+	margin-bottom: 0;
+}
+article.api {
+	margin: 0;
+	padding: 0;
+	width: @mainWidth;
+	float: right;
+}
+article article {
+	padding: @padding;
+	margin: 0;
+}
+
+.listItem {
+	padding: 0;
+	margin: 20px 0;
+	border: 3px solid #FFF;
+	.rounded(5px 5px 0 0);
+	background-color: @boxBackgroundColour;
+}
+.listItem h3 {
+	background-color: @lloydsLightGreen;
+	
+	.rounded(5px 5px 0 0);
+	.gradient(@lloydsLightGreen, darken(@lloydsLightGreen, 5%), @lloydsLightGreen);
+}
+.listItem h3, .methods, .representation {
+	padding: 10px;
+	margin: 0;
+}
+.methods {
+	border-top: 3px solid #FFF;
+	border-bottom: 3px solid #FFF;
+}
+.listItem .properties {
+	padding: 10px;
+}
+.listItem table {
+	background-color: #FEFEFE;
+	border: 1px solid #dddddd;
+	border-collapse: separate;
+	*border-collapse: collapse;
+}
+.listItem .properties ul {
+	background-color: lighten(@boxBackgroundColour, 3%);
+	list-style-position: inside;
+	padding: 5px 10px;
+	margin: 5px 0;
+}
+.listItem .properties ul small {
+	color: #666;
+	float: right;
+	display: block;
+	margin-bottom: 5px;
+}
+span.tag {
+	color: #ac767e;
+}
+.hide {
+	display: none;
+}
+.method {
+	padding: 10px;
+	border-top: 5px solid #FFF;
+}
+.representation {
+	list-style: none;
+	margin-top: 10px;
+	background: darken(@boxBackgroundColour, 5%);
+	.rounded(5px);
+}
+.representation h5 {
+	margin-top: 0;
+}
+.representation ul {
+	margin-bottom: 0;
+}
+.type .representation {
+	margin: 10px;
+}
+.type .properties + .representation {
+	margin-top: 0;
+}
+.pathParamters {
+	padding: 10px;
+	border-top: 5px solid #FFF;
+}
+
+@media only screen and (min-width: 1174px) {
+	nav {
+		width: 470px;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	article.api {
+		margin-left: 470px;
+		width: auto;
+	}
+}
