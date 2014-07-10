@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +9,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    <script src="../js/splashTransition.js"></script>
     <style>
         #demo-borders .ui-collapsible .ui-collapsible-heading .ui-btn { border-top-width: 1px !important; }
     </style>
@@ -20,12 +20,14 @@
         }
     </style>
 </head>
-<body id="gradient">
+<body id="gradient" onload="splashTransition()">
     <div id="logo_container">
         <img src="../images/Halifax_logo_white.svg"  class="halifax_logo"/>
     </div>
-    <div id="splash_page_content">
-        <img src="../images/travel_extra.svg"/>
+    <div id="content_body">
+        <div id="splash_page_content">
+            <img src="../images/travel_extra.svg"/>
+        </div>
     </div>
 </body>
 </html>
