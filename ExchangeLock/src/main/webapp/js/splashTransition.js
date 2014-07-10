@@ -6,7 +6,10 @@ $.get( "home_page.html", function( data ) {
   $("#content_body").html( data );
 });
 
-
+$.get("safetynet.html", function(data)
+{
+    $("#safetynet").html(data);
+})
 
 $.get("footer.html", function(data)
 {

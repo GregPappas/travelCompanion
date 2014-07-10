@@ -39,3 +39,31 @@ display:none;
 }
 
 .tagBox{background:white; width:90%; margin:0px auto;}
+
+.white-background{
+   background: -webkit-linear-gradient(#ffffff, #ffffff); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(#ffffff, #ffffff); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(#ffffff, #ffffff); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(#ffffff, #ffffff); /* Standard syntax */
+   font-family:"agenda-mediumregular";
+   display:block;
+   text-align: center;
+   width: 95%;
+   margin: auto;
+}
+
+#safety-net {
+    margin: auto;
+    overflow:hidden;
+    width: 40%;
+}
+
+#safety-left {
+   float: left;
+}
+#safety-right {
+   float: left;
+}
+.clear-both {
+   clear: both;
+}
