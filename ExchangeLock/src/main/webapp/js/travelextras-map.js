@@ -96,14 +96,15 @@ function initializeCountryList() {
 			$('#select-country').change(function() {
 			    selectedCountry = $('#select-country').val();
 			    selectedCurrency = countryCurrencies[selectedCountry];
-			    selectedCurrencySymbol = countryCurrencySymbols[selectedCountry];
+			    selectedCurrencySymbol = currencySymbols[countryCurrencySymbols[selectedCountry]];
+			    selectedCurrencyRate = currencyRates[countryCurrencySymbols[selectedCountry]];
 			    selectedCurrencyAmount = 0;
 			})
 
 	    });
 
         $.ajax({
-            url: "csv/rates.csv"
+            url: "csv/rates-and-symbols.csv"
         }).done(function( csv ) {
             ratesInput = $.csv2Dictionary(csv);
             for ( var i = 0; i < ratesInput.length; i += 1) {
@@ -112,6 +113,7 @@ function initializeCountryList() {
                     break;
                 }
                 currencyRates[c.code] = c.rate;
+                currencySymbols[c.code] = c.symbol;
             }
         });
 }
