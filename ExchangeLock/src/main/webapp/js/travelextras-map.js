@@ -86,12 +86,18 @@ function initializeCountryList() {
                         text: c.name
                     }));
                 countryCurrencies[c.name] = c.currency_name;
+                countryCurrencySymbols[c.name] = currencySymbols[c.currency_alphabetic_code];
+                if (countryCurrencySymbols[c.name] == null) {
+                    countryCurrencySymbols[c.name] = c.currency_alphabetic_code;
+                }
+
 			}
 
 			$('#select-country').change(function() {
-			    var countryName = $('#select-country').val();
-			    var currencyName = countryCurrencies[countryName];
-			    alert("changed to " + countryName + " which needs " + currencyName + "s");
+			    selectedCountry = $('#select-country').val();
+			    selectedCurrency = countryCurrencies[selectedCountry];
+			    selectedCurrencySymbol = countryCurrencySymbols[selectedCountry];
+			    selectedCurrencyAmount = 0;
 			})
 
 	});
