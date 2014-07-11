@@ -96,7 +96,8 @@ function initializeCountryList() {
 			$('#select-country').change(function() {
 			    selectedCountry = $('#select-country').val();
 			    selectedCurrency = countryCurrencies[selectedCountry];
-			    selectedCurrencySymbol = countryCurrencySymbols[selectedCountry];
+			    selectedCurrencySymbol = currencySymbols[countryCurrencySymbols[selectedCountry]];
+			    selectedCurrencyRate = currencyRates[countryCurrencySymbols[selectedCountry]];
 			    selectedCurrencyAmount = 0;
 			})
 
