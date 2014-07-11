@@ -1,2 +1,4 @@
-Australia,-27,133
-Thailand,15,100
+name,latitude,longitude,zoom
+Australia,-27,133,4
+Thailand,15,100,5
+India,20,77,4

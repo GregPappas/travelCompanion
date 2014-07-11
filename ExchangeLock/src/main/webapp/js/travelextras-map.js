@@ -102,12 +102,12 @@ function initializeCountryList() {
 			    selectedCurrencyRate = currencyRates[countryCurrencySymbols[selectedCountry]];
 			    selectedCurrencyAmount = 0;
 
-                var newLatitude = 15;
-                var newLongitude = 100;
-                var newLocation = new google.maps.LatLng(newLatitude, newLongitude);
+			    var locationDetails = countryLocations[selectedCountry];
+
+                var newLocation = new google.maps.LatLng(locationDetails.latitude, locationDetails.longitude);
                 var myOptions = {
                     center : newLocation,
-                    zoom : 5,
+                    zoom : 4,
                     mapTypeId : google.maps.MapTypeId.TERRAIN
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
@@ -127,6 +127,25 @@ function initializeCountryList() {
                 }
                 currencyRates[c.code] = c.rate;
                 currencySymbols[c.code] = c.symbol;
+            }
+        });
+
+        $.ajax({
+            url: "csv/country-locations2.csv"
+        }).done(function( csv ) {
+            clInput = $.csv2Dictionary(csv);
+            for ( var i = 0; i < clInput.length; i += 1) {
+                var c = clInput[i];
+                if (c.name == null) {
+                    break;
+                }
+                var loc = {
+                    name: c.name,
+                    latitude: c.latitude,
+                    longitude: c.longitude,
+                    zoom: c.zoom
+                };
+                countryLocations[c.name] = loc;
             }
         });
 }
