@@ -350,10 +350,10 @@ blockquote p {
 ------------------------------------------ */
 
 .triangle-obtuse.top {
-  background:-webkit-gradient(linear, 0 0, 0 100%, from(#c81e2b), to(#f04349));
-  background:-moz-linear-gradient(#c81e2b, #f04349);
-  background:-o-linear-gradient(#c81e2b, #f04349);
-  background:linear-gradient(#c81e2b, #f04349);
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#00AEEF), to(#00AEEF));
+  background:-moz-linear-gradient(#00AEEF, #00AEEF);
+  background:-o-linear-gradient(#00AEEF, #00AEEF);
+  background:linear-gradient(#00AEEF, #00AEEF);
 }
 
 /* Variant : for left positioned triangle
@@ -399,7 +399,7 @@ blockquote p {
   left:80px; /* value = (:before's left) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
   border:0;
   border-right-width:10px; /* vary this value to change the angle of the vertex */
-  border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
+  border-bottom-width:0px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
   border-style:solid;
   border-color:transparent #fff;
   /* reduce the damage in FF3.0 */
@@ -417,7 +417,7 @@ blockquote p {
   right:60px; /* controls horizontal position */
   border:0;
   border-left-width:30px; /* vary this value to change the width of the triangle */
-  border-top-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
+  border-top-width:0px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
   border-color:transparent #c81e2b;
 }
 
@@ -428,7 +428,7 @@ blockquote p {
   right:80px; /* value = (:before's right) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
   border-width:0;
   border-left-width:10px; /* vary this value to change the width of the triangle */
-  border-top-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
+  border-top-width:0px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
   border-color:transparent #fff;
 }
 
