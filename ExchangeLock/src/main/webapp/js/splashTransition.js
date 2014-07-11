@@ -44,5 +44,7 @@ function showMap(){
     $('#click_me').fadeOut(2000);
     $('.map_canvas_container').fadeIn(2000);
     initialize();
+    $('#currency_lock').fadeOut(2000);
+    $('#safetynet').fadeOut(2000);
 };
 

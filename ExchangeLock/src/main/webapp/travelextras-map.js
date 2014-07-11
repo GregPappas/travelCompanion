@@ -51,7 +51,7 @@ function ResetControl(controlDiv, map) {
 
 }
 
-function initialize() {
+function initialize2() {
 	var myOptions = {
 		center : homeLocation,
 		zoom : homeZoom,
@@ -59,94 +59,7 @@ function initialize() {
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-	$.ajax({
-	  	url: countryCsvUrl
-	}).done(function( csv ) {
-		var countries = $.csv2Dictionary(csv);
-		for ( var cCount = 0; cCount < countries.length; cCount += 1) {
-			var c = countries[cCount];
-			if (c.name == null) {
-				break;
-			}
 
-			c.zoomLat = parseFloat(c.zoomLat);
-			c.zoomLong = parseFloat(c.zoomLong);
-			c.zoomLevel = parseFloat(c.zoomLevel);
-
-			var outlines = [c.outline1, c.outline2, c.outline3, c.outline4, c.outline5];
-			var polygons = [];
-			for ( var j = 0; j < outlines.length; j += 1) {
-				if (outlines[j] == null) {
-					break;
-				}
-				var points = [];
-				var outline = outlines[j].split(",");
-				for ( var i = 0; i < outline.length; i += 2) {
-					points.push(new google.maps.LatLng(parseFloat(outline[i + 1]), parseFloat(outline[i])));
-				}
-				polygons.push(points);
-			}
-
-			var polygon = new google.maps.Polygon({
-				paths : polygons,
-				strokeColor : c.colour,
-				strokeOpacity : 0.8,
-				strokeWeight : 2,
-				fillColor : c.colour,
-				fillOpacity : 0.35,
-				country : c
-			});
-			polygon.setMap(map);
-			google.maps.event.addListener(polygon, 'click', function() {
-				var newLocation = new google.maps.LatLng(this.country.zoomLat, this.country.zoomLong);
-				map.setCenter(newLocation);
-				map.setZoom(this.country.zoomLevel);
-				if (selectedPolygon != null) {
-					selectedPolygon.setVisible(true);
-				}
-				selectedPolygon = this;
-				currentLocation = newLocation;
-				this.setVisible(false);
-			});
-
-		}
-	});
-
-
-	$.ajax({
-		  	url: producerCsvUrl
-		}).done(function( csv ) {
-			producers = $.csv2Dictionary(csv);
-			for ( var i = 0; i < producers.length; i += 1) {
-				var p = producers[i];
-				if (p.name == null) {
-					break;
-				}
-
-				var marker = new google.maps.Marker({
-					position : new google.maps.LatLng(parseFloat(p.latitude), parseFloat(p.longitude)),
-					map : map,
-					animation : google.maps.Animation.DROP,
-					title : p.name,
-					description : p.name + "<br/>" + p.description + "<br/> <a href='" + p.url + "' target='_blank'>Web site</a>"
-				});
-
-				new google.maps.event.addListener(marker, "click", function() {
-					producerPopup.setContent(this.description);
-					producerPopup.open(map, this);
-					map.panTo(this.position);
-				});
-
-			}
-		});
-
-
-
-	new google.maps.event.addListener(producerPopup, "closeclick", function() {
-		map.panTo(currentLocation);
-	});
-
-	// for the reset control
 
 	var homeControlDiv = document.createElement('div');
 	ResetControl(homeControlDiv, map);

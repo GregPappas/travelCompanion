@@ -38,8 +38,8 @@
 					<configuration>
 						<type>runtime</type>
 						<properties>
-							<cargo.hostname>tjasink.com</cargo.hostname>
-							<cargo.remote.username>tjasink-tomcat</cargo.remote.username>
+							<cargo.hostname>travel-extras-demo.co.uk</cargo.hostname>
+							<cargo.remote.username>travel-tomcat</cargo.remote.username>
 							<cargo.remote.password>password</cargo.remote.password>
 							<cargo.servlet.port>80</cargo.servlet.port>
 						</properties>
@@ -50,17 +50,17 @@
 								<groupId>com.lloydsbanking.innovation.jam</groupId>
 								<artifactId>exchange-lock</artifactId>
 								<type>war</type>
-								<pingURL>http://tjasink.com/travelextras</pingURL>
+								<pingURL>http://travel-extras-demo.co.uk/app</pingURL>
 								<pingTimeout>60000</pingTimeout>
 								<properties>
-									<context>/travelextras</context>
+									<context>/app</context>
 								</properties>
 							</deployable>
                             <deployable>
                                 <groupId>com.lloydstsb.rest</groupId>
                                 <artifactId>rest-demo-v1</artifactId>
                                 <type>war</type>
-                                <pingURL>http://tjasink.com/rest-bank/contacts</pingURL>
+                                <pingURL>http://travel-extras-demo.co.uk/rest-bank/contacts</pingURL>
                                 <pingTimeout>60000</pingTimeout>
                                 <properties>
                                     <context>/rest-bank</context>
