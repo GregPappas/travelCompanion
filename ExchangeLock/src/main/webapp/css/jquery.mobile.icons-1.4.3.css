@@ -566,11 +566,11 @@ html.ui-nosvg .ui-btn.ui-checkbox-on:after {
 }
 .ui-nosvg .ui-alt-icon.ui-icon-back:after,
 .ui-nosvg .ui-alt-icon .ui-icon-back:after {
-	background-image: url("images/icons-png/back-black.png");
+	background-image: url("images/icons-png/back-white.png");
 }
 .ui-nosvg .ui-alt-icon.ui-icon-bars:after,
 .ui-nosvg .ui-alt-icon .ui-icon-bars:after {
-	background-image: url("images/icons-png/bars-black.png");
+	background-image: url("images/icons-png/bars-white.png");
 }
 .ui-nosvg .ui-alt-icon.ui-icon-bullets:after,
 .ui-nosvg .ui-alt-icon .ui-icon-bullets:after {
