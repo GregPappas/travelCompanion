@@ -1,7 +1,7 @@
 <div class="white-background">
     <div class="map2title" style="text-align:center"><h2> Current Trip </h2></div>
     <div class="map2Container" style="width:50%; margin:auto;">
-        <div style="float:left"> City Country</div><div style="float:right; color:#003bbe; ">Edit</div>
+        <div id="countryNameDiv" style="float:left">Name</div><div style="float:right; color:#003bbe; ">Edit</div>
     </div>
     <div class="dates"><small><i>16/07/2014 TO 18/7/2014</i></small></div>
 </div>
@@ -9,9 +9,18 @@
 
 <div class="white-background">
     <div style="text-align:center"><h2>YOUR CURRENCIES</h2></div>
-    <div class="lock_this_currency">Currency Selected</div>
-    <div class="exchange_rate">exchange_rate</div>
+    <div id="currencyNameDiv" class="lock_this_currency">Currency Selected</div>
+    <div id="exchangeRateDiv" class="exchange_rate">exchange_rate</div>
     <button class="ui-btn blue_footer_button" onclick="loadMap3()" id="map1">Lock this down</button>
     <h2>Up to &pound;500 will be available at this rate on your debit and credit cards</h2>
     <button class="ui-btn grey_footer_button">Order Cash</button>
 </div>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+<script type="text/javascript">
+    $("#countryNameDiv").text(selectedCountry);
+    $("#currencyNameDiv").text(selectedCurrency);
+    $("#exchangeRateDiv").text(selectedCurrencyRate);
+</script>

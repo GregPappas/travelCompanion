@@ -2,7 +2,14 @@
 <h1>PURCHASE SUMMARY</h1>
 <h1> You have purchased</h1>
 <h1>£500 GBP</h1>
-<h5>at a rate of 305.00</h5>
-<h1>this will give you xyz yen</h1>
+<h5>at a rate of <div id="exchangeRateDiv" class="exchange_rate">exchange_rate</div></h5>
+<h1>this will give you <div id="currencyAmountDiv"></div></h1>
 <button onclick="redirect();" class="ui-btn grey_footer_button">back to dashboard</button>
 </div>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+<script type="text/javascript">
+    $("#currencyAmountDiv").text(selectedCurrencySymbol + (500 * selectedCurrencyRate));
+    $("#exchangeRateDiv").text(selectedCurrencyRate);
+</script>

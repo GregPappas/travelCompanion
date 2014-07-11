@@ -93,12 +93,25 @@ function initializeCountryList() {
 
 			}
 
+
+
 			$('#select-country').change(function() {
 			    selectedCountry = $('#select-country').val();
 			    selectedCurrency = countryCurrencies[selectedCountry];
 			    selectedCurrencySymbol = currencySymbols[countryCurrencySymbols[selectedCountry]];
 			    selectedCurrencyRate = currencyRates[countryCurrencySymbols[selectedCountry]];
 			    selectedCurrencyAmount = 0;
+
+                var newLatitude = 15;
+                var newLongitude = 100;
+                var newLocation = new google.maps.LatLng(newLatitude, newLongitude);
+                var myOptions = {
+                    center : newLocation,
+                    zoom : 5,
+                    mapTypeId : google.maps.MapTypeId.TERRAIN
+                };
+                var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+                map.setCenter(newLocation);
 			})
 
 	    });

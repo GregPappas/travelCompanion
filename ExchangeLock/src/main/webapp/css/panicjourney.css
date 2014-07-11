@@ -29,3 +29,30 @@
 #endlostcardjourney-inner {
     margin: 10px;
 }
+
+
+#replacementcardjourney{
+    display:none;
+}
+
+#replacementcardjourney-inner {
+    margin: 10px;
+}
+
+
+#moneyaddedjourney{
+    display:none;
+}
+
+#moneyaddedjourney-inner {
+    margin: 10px;
+}
+
+
+#cardorderedjourney{
+    display:none;
+}
+
+#cardorderedjourney-inner {
+    margin: 10px;
+}
