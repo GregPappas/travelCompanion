@@ -100,5 +100,18 @@ function initializeCountryList() {
 			    selectedCurrencyAmount = 0;
 			})
 
-	});
+	    });
+
+        $.ajax({
+            url: "csv/rates.csv"
+        }).done(function( csv ) {
+            ratesInput = $.csv2Dictionary(csv);
+            for ( var i = 0; i < ratesInput.length; i += 1) {
+                var c = ratesInput[i];
+                if (c.code == null) {
+                    break;
+                }
+                currencyRates[c.code] = c.rate;
+            }
+        });
 }
