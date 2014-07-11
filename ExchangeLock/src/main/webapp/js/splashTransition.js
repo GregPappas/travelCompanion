@@ -54,5 +54,12 @@ function loadMap2(){
 $.get("map2.html", function(data){
     $('#map').html(data);
 });
-
 }
+
+function loadMap3()
+{
+$.get('map3.html', function(data){
+    $('#map').html(data);
+});
+}
+
