@@ -18,6 +18,9 @@
    font-family:"agenda-mediumregular";
 }
 
+body{height:100%;}
+html{height:100%;}
+
 .jqm-header, .ui-header, ui-bar-inherit{
     background:none;
 }
@@ -33,10 +36,10 @@
 .ui-btn{margin:0px;}
 
 
-.map_canvas_container{height:50%;}
-#map-canvas{
-display:none;
-}
+.map_canvas_container{height:400px; width:90%; margin:0px auto 30px auto;position:relative; display:none; background-color:white;}
+#map-canvas {position:relative; height: 90%; width: 95%; margin: 5% auto 0px auto;top:20px; }
+#click_me{margin-bottom:5%;}
+
 
 .tagBox{background:white; width:90%; margin:0px auto;}
 
@@ -48,7 +51,7 @@ display:none;
    font-family:"agenda-mediumregular";
    display:block;
    text-align: center;
-   width: 95%;
+   width: 90%;
    margin: auto;
 }
 
