@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
     <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/speechbubble.css"/>
+    <link rel="stylesheet" href="css/panicjourney.css"/>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
     <script src="js/get_data.js"></script>
     <script src="js/splashTransition.js"></script>
+    <script src="js/panicJourney.js"></script>
     <style>
         #demo-borders .ui-collapsible .ui-collapsible-heading .ui-btn { border-top-width: 1px !important; }
     </style>
@@ -44,7 +47,7 @@
 </head>
 <body id="gradient" onload="splashTransition()">
 <div class="padded-menu">
-    <img src="images/icons-png/bars-white.png" width="25" height="25" onclick="redirect(); showCurrencyLock(); showSafetyNet();"/>
+    <img src="images/icons-png/bars-white.png" width="25" height="25" onclick="redirect(); showCurrencyLock(); showSafetyNet(); hidePanicJourney();"/>
 </div>
 
 <div id="logo_container">
@@ -62,6 +65,9 @@
 <div id="currency_lock"></div>
 <br/><br/>
 <div id="safetynet"></div>
+<br/><br/>
+<div id="panicjourney"></div>
+<div id="lostcardjourney"></div>
 <br/><br/>
 <div id="footer"></div>
 

@@ -12,8 +12,6 @@ function redirect(){
         getMap();
     });
 
-
-
     $.get("safetynet.html", function(data)
     {
         $("#safetynet").html(data);
@@ -21,8 +19,6 @@ function redirect(){
     $.get("currency_lock.html", function(data){
         $("#currency_lock").html(data);
     })
-
-
 
     $.get("footer.html", function(data)
     {

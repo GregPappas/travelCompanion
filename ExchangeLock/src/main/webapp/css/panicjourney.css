@@ -1,0 +1,21 @@
+#panicjourney {
+    display:none;
+}
+
+#panicjourney-inner {
+    margin: 10px;
+}
+
+#lostcardjourney {
+    display:none;
+}
+
+#lostcardjourney-inner {
+    margin: 10px;
+}
+
+.lostcard-text {
+    background: #00AEEF;
+    border-radius: 15px;
+    margin: 10px;
+}
