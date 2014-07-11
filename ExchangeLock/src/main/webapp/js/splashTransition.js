@@ -53,6 +53,3 @@ function showMap(){
     $('#safetynet').fadeOut(2000);
 };
 
-
-
-}
