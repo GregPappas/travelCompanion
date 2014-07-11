@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
 <link rel="stylesheet" href="css/jquery.mobile.datepicker.css"/>
 <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="jquery-ui.theme.css"/>
 
 
 <div id="button-div">
@@ -11,27 +12,26 @@
 
 <div class="map_canvas_container">
     <div id="map-canvas"></div>
-
+           <div style="width:60%; margin:40px auto 0px auto;">
+            <div style="width 50%; float:left; ">Where are you going?</div>
+         <select name="select-country" id="select-country" style="width:50%; float-right; border:1px solid black;">
+            <option value="">Please select...</option>
+        </select>
+        <div id="label_container" style="width:100%;">
+            <div class="date-label" style="width:50%; float:left; text-align:center;">From:</div>
+            <div class="date-label" style="width:50%; float:left; text-align:left;">To:</div>
+        </div>
+        <div id="input_container_dates" style="width:60%; margin:auto;">
+            <div class="date-input" style="width:30%; float:left; margin-right:20%;">
+                <input id="date-from" data-role="date" type="text" style="width:30%; margin:auto;">
+            </div>
+            <div class="date-input" style="width:30%; float:left;">
+                <input id="date-to" data-role="date" type="text" style="width:30%; margin:auto;">
+            </div>
+        </div>
+    <button class="ui-btn blue_footer_button" onclick="loadMap2()" id="map1">NEXT</button>
 </div>
 
-        <form>
-            <label for="select-country" class="select">Where are you going?</label>
-            <select name="select-country" id="select-country">
-                <option value="">Please select...</option>
-            </select>
-            <div id="label_container" style="width:100%;">
-                <div class="date-label" style="width:50%; float:left; text-align:center;">From:</div>
-                <div class="date-label" style="width:50%; float:left; text-align:center;">To:</div>
-            </div>
-            <div id="input_container_dates" style="width:60%; margin:auto;">
-                <div class="date-input" style="width:30%; float:left; margin-right:20%;">
-                    <input id="date-from" data-role="date" type="text" style="width:30%; margin:auto;">
-                </div>
-                <div class="date-input" style="width:30%; float:left;">
-                    <input id="date-to" data-role="date" type="text" style="width:30%; margin:auto;">
-                </div>
-            </div>
-        </form>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>

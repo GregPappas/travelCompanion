@@ -51,5 +51,12 @@ function showMap(){
     initialize();
     $('#currency_lock').fadeOut(500);
     $('#safetynet').fadeOut(500);
-};
+    $('#title_container').fadeOut(500);
+}
 
+function loadMap2(){
+$.get("map2.html", function(data){
+    $('#map').html(data);
+});
+
+}
