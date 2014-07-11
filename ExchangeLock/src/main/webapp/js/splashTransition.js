@@ -6,10 +6,12 @@ $.get( "home_page.html", function( data ) {
   $("#content_body").html( data );
 });
 
+$.get("welcome.html", function(data){
+    $("#welcome").html(data);
+    getMap();
+});
 
-$.get("map.html", function(data){
-    $("#map").html(data);
-})
+
 
 $.get("safetynet.html", function(data)
 {
@@ -30,6 +32,11 @@ $.get("footer.html", function(data)
 
 }
 
+function getMap(){
+$.get("map.html", function(data){
+            $("#map").html(data);
+        })
+}
 
 
 function showMap(){
