@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.css"/>
+<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
+
 <div id="button-div">
 <button  id="click_me" onclick="showMap()" class="ui-btn grey_footer_button">Add Trip</button>
 <br/>
@@ -5,5 +11,34 @@
 
 <div class="map_canvas_container">
     <div id="map-canvas"></div>
+
 </div>
 
+        <form>
+            <label for="select-country" class="select">Where are you going?</label>
+            <select name="select-country" id="select-country">
+                <option value="">Please select...</option>
+            </select>
+            <div id="label_container" style="width:100%;">
+                <div class="date-label" style="width:50%; float:left; text-align:center;">From:</div>
+                <div class="date-label" style="width:50%; float:left; text-align:center;">To:</div>
+            </div>
+            <div id="input_container_dates" style="width:60%; margin:auto;">
+                <div class="date-input" style="width:30%; float:left; margin-right:20%;">
+                    <input id="date-from" data-role="date" type="text" style="width:30%; margin:auto;">
+                </div>
+                <div class="date-input" style="width:30%; float:left;">
+                    <input id="date-to" data-role="date" type="text" style="width:30%; margin:auto;">
+                </div>
+            </div>
+        </form>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+<script src="js/jquery.mobile.datepicker.js"></script>
+
+<script type="text/javascript">
+    initializeCountryList();
+    $("#date-from").datepicker();
+    $("#date-to").datepicker();
+</script>

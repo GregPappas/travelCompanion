@@ -15,6 +15,15 @@
     <script src="js/get_data.js"></script>
     <script src="js/splashTransition.js"></script>
     <script src="js/panicJourney.js"></script>
+
+    <script type="text/javascript" src="js/jquery.csv-0.71.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/travelextras-map.js"></script>
+    <script type="text/javascript">
+        var countryCurrencies = {};
+        var countries = [];
+    </script>
+
     <style>
         #demo-borders .ui-collapsible .ui-collapsible-heading .ui-btn { border-top-width: 1px !important; }
     </style>
@@ -49,7 +58,6 @@
 <div class="padded-menu">
     <img src="images/icons-png/bars-white.png" width="25" height="25" onclick="redirect(); showCurrencyLock(); showSafetyNet(); hidePanicJourney();"/>
 </div>
-
 <div id="logo_container">
     <img src="images/Halifax_logo_white.svg" class="halifax_logo"/>
 </div>

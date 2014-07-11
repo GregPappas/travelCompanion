@@ -13,6 +13,7 @@ function panicJourney() {
 
 function hidePanicJourney() {
     $("#panicjourney").fadeOut(2000);
+    $("#lostcardjourney").fadeOut(2000);
 }
 
 function lostDebitCard() {

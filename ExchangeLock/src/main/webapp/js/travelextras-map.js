@@ -68,3 +68,31 @@ function initialize2() {
 	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
 
 }
+
+
+function initializeCountryList() {
+        $.ajax({
+		  	url: "csv/countries.csv"
+		}).done(function( csv ) {
+			countryInput = $.csv2Dictionary(csv);
+			for ( var i = 0; i < countryInput.length; i += 1) {
+				var c = countryInput[i];
+				if (c.name == null) {
+					break;
+				}
+
+                $('#select-country').append($("<option/>", {
+                        value: c.name,
+                        text: c.name
+                    }));
+                countryCurrencies[c.name] = c.currency_name;
+			}
+
+			$('#select-country').change(function() {
+			    var countryName = $('#select-country').val();
+			    var currencyName = countryCurrencies[countryName];
+			    alert("changed to " + countryName + " which needs " + currencyName + "s");
+			})
+
+	});
+}

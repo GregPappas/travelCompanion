@@ -42,10 +42,10 @@ function showCurrencyLock() {
 
 function showMap(){
     console.log("map initialised");
-    $('#click_me').fadeOut(2000);
-    $('.map_canvas_container').fadeIn(2000);
+    $('#click_me').fadeOut(500);
+    $('.map_canvas_container').fadeIn(500);
     initialize();
-    $('#currency_lock').fadeOut(2000);
-    $('#safetynet').fadeOut(2000);
+    $('#currency_lock').fadeOut(500);
+    $('#safetynet').fadeOut(500);
 };
 
