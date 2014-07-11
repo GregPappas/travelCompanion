@@ -1,6 +1,5 @@
 function panicJourney() {
     $("#welcome").fadeOut(2000);
-    $("#currency_lock").fadeOut(2000);
     $("#safetynet").fadeOut(2000);
 
     $.get("panicjourney.html", function(data){
@@ -30,6 +29,8 @@ function lostDebitCard() {
 }
 
 function yesBlockMyCard() {
+    $.get("/rest-bank/changeState/checkflag/toggleflag/69003");
+
     $("#yesDebitCardButton").fadeOut(2000);
     $("#noDebitCardButton").fadeOut(2000);
 
