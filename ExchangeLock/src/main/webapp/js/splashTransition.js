@@ -1,5 +1,5 @@
 function splashTransition(){
-    window.setTimeout("redirect()",2000)
+    window.setTimeout("redirect()",1000)
 }
 
 function redirect(){
@@ -17,6 +17,8 @@ function redirect(){
         $("#safetynet").html(data);
     })
 
+    $("#safetynet").fadeIn(500);
+    $("#welcome").fadeIn(500);
     $.get("footer.html", function(data)
     {
         $("#footer").html(data);
@@ -30,7 +32,7 @@ $.get("map.html", function(data){
 }
 
 function showSafetyNet() {
-    $("#safetynet").fadeIn(2000);
+    $("#safetynet").fadeIn(500);
 }
 
 function showCurrencyLock() {
