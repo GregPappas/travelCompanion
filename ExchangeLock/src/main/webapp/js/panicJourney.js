@@ -1,6 +1,5 @@
 function panicJourney() {
     $("#welcome").fadeOut(2000);
-    $("#currency_lock").fadeOut(2000);
     $("#safetynet").fadeOut(2000);
 
     $.get("panicjourney.html", function(data){

@@ -16,9 +16,6 @@ function redirect(){
     {
         $("#safetynet").html(data);
     })
-    $.get("currency_lock.html", function(data){
-        $("#currency_lock").html(data);
-    })
 
     $.get("footer.html", function(data)
     {
@@ -37,7 +34,7 @@ function showSafetyNet() {
 }
 
 function showCurrencyLock() {
-    $("#currency_lock").fadeIn(2000);
+
 }
 
 function showMap(){
@@ -45,7 +42,6 @@ function showMap(){
     $('#click_me').fadeOut(500);
     $('.map_canvas_container').fadeIn(500);
     initialize();
-    $('#currency_lock').fadeOut(500);
     $('#safetynet').fadeOut(500);
     $('#title_container').fadeOut(500);
 }
