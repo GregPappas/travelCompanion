@@ -58,11 +58,17 @@ html{height:100%;}
     padding: 25px 50px;
 }
 
+
 #safety-net {
     margin: auto;
     overflow:hidden;
     width: 60%;
 }
+
+#button-div{
+    margin:10px;
+}
+
 
 #safety-left {
    float: left;
