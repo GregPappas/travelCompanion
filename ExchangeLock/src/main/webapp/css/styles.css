@@ -106,3 +106,8 @@ height: 10%;
    clear: both;
 }
 
+#splash_page_content {
+width: 70%;
+margin: auto;
+margin-top: 25%;
+}
