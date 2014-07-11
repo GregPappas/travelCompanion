@@ -14,6 +14,8 @@ function panicJourney() {
 function hidePanicJourney() {
     $("#panicjourney").fadeOut(2000);
     $("#lostcardjourney").fadeOut(2000);
+    $("#blockedcardjourney").fadeOut(2000);
+    $("#endlostcardjourney").fadeOut(2000);
 }
 
 function lostDebitCard() {
@@ -25,4 +27,24 @@ function lostDebitCard() {
             $("#lostcardjourney").html(data);
     });
     $("#lostcardjourney").fadeIn(2000);
+}
+
+function yesBlockMyCard() {
+    $("#yesDebitCardButton").fadeOut(2000);
+    $("#noDebitCardButton").fadeOut(2000);
+
+    $.get("blockedcardjourney.html", function(data){
+            $("#blockedcardjourney").html(data);
+    });
+    $("#blockedcardjourney").fadeIn(2000);
+}
+
+function yesMyCardIsStolen() {
+    $("#yesBlockedCardButton").fadeOut(2000);
+    $("#noBlockedCardButton").fadeOut(2000);
+
+    $.get("endlostcardjourney.html", function(data){
+            $("#endlostcardjourney").html(data);
+    });
+    $("#endlostcardjourney").fadeIn(2000);
 }

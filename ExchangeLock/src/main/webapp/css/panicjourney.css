@@ -14,8 +14,18 @@
     margin: 10px;
 }
 
-.lostcard-text {
-    background: #00AEEF;
-    border-radius: 15px;
+#blockedcardjourney {
+    display:none;
+}
+
+#blockedcardjourney-inner {
+    margin: 10px;
+}
+
+#endlostcardjourney {
+    display:none;
+}
+
+#endlostcardjourney-inner {
     margin: 10px;
 }
