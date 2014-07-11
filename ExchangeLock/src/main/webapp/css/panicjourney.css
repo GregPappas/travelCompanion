@@ -1,0 +1,31 @@
+#panicjourney {
+    display:none;
+}
+
+#panicjourney-inner {
+    margin: 10px;
+}
+
+#lostcardjourney {
+    display:none;
+}
+
+#lostcardjourney-inner {
+    margin: 10px;
+}
+
+#blockedcardjourney {
+    display:none;
+}
+
+#blockedcardjourney-inner {
+    margin: 10px;
+}
+
+#endlostcardjourney {
+    display:none;
+}
+
+#endlostcardjourney-inner {
+    margin: 10px;
+}
